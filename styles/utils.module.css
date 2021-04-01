@@ -1,0 +1,31 @@
+/* typography */
+.headingMd {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+}
+
+.headingSm {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+}
+
+/* elements */
+.card {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0.2rem 0.2rem 0.5rem 0px rgba(0, 0, 0, 0.24);
+  margin: 2rem auto;
+  padding: 1rem 1.2rem;
+}
+
+/* util */
+.noListStyle {
+  list-style: none;
+}
+
+/* layout */
+.flexRow {
+  display: flex;
+}
