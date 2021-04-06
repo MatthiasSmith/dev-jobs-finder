@@ -6,8 +6,9 @@ const DateString = ({ dateString }: { dateString: string }) => {
   shortened = shortened.replace(/months?/g, 'd');
   shortened = shortened.replace(/days?/g, 'd');
   shortened = shortened.replace(/hours?/g, 'h');
-  shortened = shortened.replace(/minutes?/g, 'min');
-  return <span>{shortened.replace(' ', '')} ago</span>;
+  shortened = shortened.replace(/minute?/g, ' min');
+  shortened = shortened.replace(/minutes?/g, ' mins');
+  return <span style={{whiteSpace: 'nowrap'}}>{shortened.replace(' ', '')} ago</span>;
 };
 
 export default DateString;
