@@ -11,6 +11,14 @@
   line-height: 1.75rem;
 }
 
+.fontWeightNormal {
+  font-weight: normal;
+}
+
+.textColorSecondary {
+  color: rgba(0, 0, 0, .6);
+}
+
 /* elements */
 .card {
   background: white;
@@ -28,4 +36,25 @@
 /* layout */
 .flexRow {
   display: flex;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+
+.flex {
+  flex: 1;
+}
+
+/* positioning */
+.mb1 {
+  margin-bottom: 1rem;
+}
+
+.mb2 {
+  margin-bottom: 2rem;
 }
