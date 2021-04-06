@@ -36,6 +36,31 @@
   padding: 1rem 1.2rem;
 }
 
+.btn {
+  appearance: none;
+  border: none;
+  border-radius: 0.4rem;
+  height: 45px;
+  min-width: 45px;
+}
+
+.input {
+  appearance: none;
+  border: none;
+  border-radius: 0.4rem;
+  color: rgba(0,0,0,.87);
+  height: 4rem;
+  padding-left: 1rem;
+  font-family: 'Roboto';
+  font-size: 1.15rem;
+  outline: 0;
+}
+
+.input::placeholder {
+  color: rgba(0,0,0,.48);
+  font-size: 1.15rem;
+}
+
 /* util */
 .noListStyle {
   list-style: none;
