@@ -7,6 +7,8 @@ import Header from '../components/header/header';
 import Search from '../components/search/search';
 import { useState } from 'react';
 
+import styles from '../styles/Home.module.css';
+
 export default function Home() {
   const defaultUrl = '/api/jobs';
   const [title, setTitle] = useState('');
@@ -71,9 +73,15 @@ export default function Home() {
         />
       </Header>
       <main>
-        {error ? <div>Failed to load</div> : null}
+        {error ? <h2 className={styles.centeredText}>Failed to load</h2> : null}
         {!data ? (
-          <div>Loading...</div>
+          <h2 className={styles.centeredText}>
+            Loading...
+          </h2>
+        ) : !data.length ? (
+          <h2 className={styles.centeredText}>
+            No jobs match your search criteria.
+          </h2>
         ) : (
           <ul>
             {data.map((job) => (
