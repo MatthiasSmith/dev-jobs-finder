@@ -13,11 +13,24 @@
 
 .filterButton {
   background: none;
+  margin-left: 0.5rem;
 }
 
 .searchButton {
   background: linear-gradient(to bottom right, var(--color-primary), cornflowerblue);
   margin-left: 0.5rem;
+}
+
+.filterIcon {
+  fill: rgba(0, 0, 0, 0.6);
+}
+
+.inverted {
+  background: rgba(0,0,0,.5);
+}
+
+.inverted .filterIcon {
+  fill: white;
 }
 
 .filters {
@@ -41,6 +54,7 @@
 .filters li {
   height: 4rem;
   padding-left: 1rem;
+  padding-right: 0.7rem;
   list-style: none;
 }
 
@@ -115,4 +129,8 @@
 
 .filters input[type="checkbox"]:checked::after {
   transform: rotate(-45deg) scale(0.9);
+}
+
+.filters button {
+  margin-left: 0.6rem;
 }

@@ -1,0 +1,27 @@
+.btn {
+  appearance: none;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: .9rem;
+  height: 45px;
+  min-width: 45px;
+  padding: 0rem 0.9rem;
+}
+
+.btn.icon {
+  padding: unset;
+}
+
+.btn.primary {
+  background: white;
+  border: 1px solid var(--text-color-primary);
+  color: var(--text-color-primary);
+}
+
+.btn.secondary {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, .6);
+  color: rgba(0,0,0,.87);
+}

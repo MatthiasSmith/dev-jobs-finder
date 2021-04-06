@@ -1,6 +1,8 @@
+import { useState } from 'react';
+
+import Button from '../button/button';
 import styles from './search.module.css';
 import utilStyles from '../../styles/utils.module.css';
-import { useState } from 'react';
 
 const Search = ({
   title,
@@ -10,6 +12,7 @@ const Search = ({
   onChangeLocation,
   onChangeIsFullTime,
   onSearch,
+  onClear,
 }: {
   title: string;
   location: string;
@@ -18,6 +21,7 @@ const Search = ({
   onChangeLocation: Function;
   onChangeIsFullTime: Function;
   onSearch: Function;
+  onClear: Function;
 }) => {
   const [filtersVisible, setFiltersVisible] = useState(false);
   const handleSubmit = (event) => {
@@ -41,6 +45,10 @@ const Search = ({
     setFiltersVisible(!filtersVisible);
   };
 
+  const handleClearFilters = () => {
+    onClear();
+  };
+
   return (
     <form className={styles.searchForm}>
       <input
@@ -50,11 +58,14 @@ const Search = ({
         value={title}
         onChange={handleChangeTitle}
       />
-      <button
+      <Button
         type='button'
         title={filtersVisible ? 'hide extra filters' : 'show extra filters'}
         onClick={toggleFilterVisibility}
-        className={`${utilStyles.btn} ${styles.filterButton}`}
+        className={`${styles.filterButton} ${
+          filtersVisible ? styles.inverted : ''
+        }`}
+        icon='true'
       >
         <svg
           aria-hidden='true'
@@ -63,7 +74,7 @@ const Search = ({
           height='30px'
           viewBox='0 0 24 24'
           width='30px'
-          fill='rgba(0, 0, 0, .60)'
+          className={styles.filterIcon}
         >
           <g>
             <path d='M0,0h24 M24,24H0' fill='none' />
@@ -71,12 +82,13 @@ const Search = ({
             <path d='M0,0h24v24H0V0z' fill='none' />
           </g>
         </svg>
-      </button>
-      <button
+      </Button>
+      <Button
         type='submit'
         title='search'
         onClick={handleSubmit}
         className={`${utilStyles.btn} ${styles.searchButton}`}
+        icon='true'
       >
         <svg
           aria-hidden='true'
@@ -89,7 +101,7 @@ const Search = ({
           <path d='M0 0h24v24H0z' fill='none' />
           <path d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' />
         </svg>
-      </button>
+      </Button>
       {filtersVisible ? (
         <div className={styles.filters}>
           <hr />
@@ -107,7 +119,7 @@ const Search = ({
               </svg>
               <input
                 type='search'
-                placeholder='Filter by location'
+                placeholder='Search by location'
                 className={utilStyles.input}
                 value={location}
                 onChange={handleChangeLocation}
@@ -123,6 +135,27 @@ const Search = ({
               />
               <label htmlFor='fullTime'>Full Time</label>
             </li>
+            {
+              <li
+                className={`${utilStyles.flexRow} ${utilStyles.alignCenter} ${utilStyles.flexEnd}`}
+              >
+                <Button
+                  type='button'
+                  onClick={handleClearFilters}
+                  secondary='true'
+                >
+                  Clear Filters
+                </Button>
+                <Button
+                  type='button'
+                  onClick={handleSubmit}
+                  primary='true'
+                  className={utilStyles.ml1}
+                >
+                  Apply Filters
+                </Button>
+              </li>
+            }
           </ul>
         </div>
       ) : null}

@@ -8,14 +8,15 @@ import Search from '../components/search/search';
 import { useState } from 'react';
 
 export default function Home() {
+  const defaultUrl = '/api/jobs';
   const [title, setTitle] = useState('');
   const [location, setLocation] = useState('');
   const [isFullTime, setIsFullTime] = useState(false);
-  const [url, setUrl] = useState('/api/jobs');
+  const [url, setUrl] = useState(defaultUrl);
   const { data, error } = useSWR(url, fetcher);
 
-  const handleSearch = () => {
-    let newUrl = '/api/jobs';
+  const performSearch = () => {
+    let newUrl = defaultUrl;
     if (title.length || location.length || isFullTime) {
       newUrl += '?';
     }
@@ -31,6 +32,13 @@ export default function Home() {
         : 'full_time=true'
       : '';
     setUrl(newUrl);
+  };
+
+  const clearFilters = () => {
+    setTitle('');
+    setLocation('');
+    setIsFullTime(false);
+    setUrl(defaultUrl);
   };
 
   const changeTitle = (event) => {
@@ -58,7 +66,8 @@ export default function Home() {
           onChangeTitle={changeTitle}
           onChangeLocation={changeLocation}
           onChangeIsFullTime={changeFullTime}
-          onSearch={handleSearch}
+          onSearch={performSearch}
+          onClear={clearFilters}
         />
       </Header>
       <main>

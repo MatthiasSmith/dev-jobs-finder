@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 :root {
+  --text-color-primary: #007bc3;
   --color-primary: #00a1ff;
   --card-box-shadow: 0.15rem 0.15rem 0.17rem -0.1rem rgba(0, 0, 0, 0.25),
     0rem 0rem 0.5rem -0.3rem rgba(0, 0, 0, 0.16);

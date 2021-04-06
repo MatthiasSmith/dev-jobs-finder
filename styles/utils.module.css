@@ -36,14 +36,6 @@
   padding: 1rem 1.2rem;
 }
 
-.btn {
-  appearance: none;
-  border: none;
-  border-radius: 0.4rem;
-  height: 45px;
-  min-width: 45px;
-}
-
 .input {
   appearance: none;
   border: none;
@@ -77,6 +69,10 @@
 
 .spaceBetween {
   justify-content: space-between;
+}
+
+.flexEnd {
+  justify-content: flex-end;
 }
 
 .flex {
