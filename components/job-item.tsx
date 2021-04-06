@@ -49,10 +49,10 @@ const JobItem = ({
             </div>
           </div>
           <div
-            className={`${utilStyles.flexRow} ${utilStyles.alignCenter} ${utilStyles.spaceBetween} ${utilStyles.textColorSecondary}`}
+            className={`${utilStyles.textSm} ${utilStyles.flexRow} ${utilStyles.alignCenter} ${utilStyles.spaceBetween} ${utilStyles.textColorSecondary}`}
           >
             <div>
-              <span>{type}</span> - <span>{location}</span>
+              <span>{type}</span> - <span className={utilStyles.textCapitalize}>{location}</span>
             </div>
             <div
               className={`${utilStyles.textColorSecondary}`}

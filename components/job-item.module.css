@@ -1,7 +1,5 @@
 .jobItem {
-  position: relative;
-  margin-bottom: 3rem;
-  /* padding-top: 2.5rem; */
+  margin-bottom: 1.4rem;
 }
 
 .jobItem > * {

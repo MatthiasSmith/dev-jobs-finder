@@ -1,0 +1,39 @@
+.searchForm {
+  background: white;
+  border-radius: 0.4rem;
+  box-shadow: var(--card-box-shadow);
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  margin-top: 3.2rem;
+  overflow: hidden;
+  padding-right: 0.7rem;
+}
+
+.searchInput {
+  appearance: none;
+  border: none;
+  color: rgba(0,0,0,.87);
+  height: 4rem;
+  flex: 1;
+  padding-left: 1rem;
+  font-family: 'Roboto';
+  font-size: 1.25rem;
+  outline: 0;
+}
+
+.searchInput::placeholder {
+  color: rgba(0,0,0,.48);
+  font-size: 1.2rem;
+}
+
+.searchButton {
+  appearance: none;
+  background: linear-gradient(to bottom right, #00a1ff, cornflowerblue);
+  border: none;
+  border-radius: 0.4rem;
+  color: white;
+  height: 45px;
+  width: 45px;
+  margin-left: 0.5rem;
+}
