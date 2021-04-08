@@ -8,7 +8,6 @@ const fetcher = (
       } else {
         throw new Error('An error occurred.');
       }
-    })
-    .catch((error) => error);
+    });
 
 export default fetcher;
