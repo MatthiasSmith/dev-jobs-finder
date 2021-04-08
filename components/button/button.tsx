@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './button.module.css';
+import utilStyles from '../../styles/utils.module.css';
 
 interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   primary?: string;
@@ -16,6 +17,7 @@ const Button = (props: ButtonProps) => {
     <button
       {...props}
       className={`${styles.btn}
+      ${utilStyles.focusVisible}
       ${props.primary ? styles.primary : ''}
       ${props.secondary ? styles.secondary : ''}
       ${props.icon ? styles.icon : ''}

@@ -8,6 +8,7 @@
   height: 45px;
   min-width: 45px;
   padding: 0rem 0.9rem;
+  transition: background-color 0.18s ease-out;
 }
 
 .btn.icon {
@@ -15,7 +16,7 @@
 }
 
 .btn.primary {
-  background: white;
+  background-color: white;
   border: 1px solid var(--text-color-primary);
   color: var(--text-color-primary);
 }
@@ -24,4 +25,42 @@
   background: white;
   border: 1px solid rgba(0, 0, 0, .6);
   color: rgba(0,0,0,.87);
+}
+
+.btn:not(.icon):hover {
+  background-color: rgba(0, 0, 0, .06);
+}
+
+.btnLink {
+  background-color: transparent;
+  border-radius: 0.4rem;
+  border: 1px solid var(--text-color-primary);
+  color: var(--text-color-primary);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: bold;
+  height: 45px;
+  padding: 0.58rem 0.7rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.18s ease-out;
+  white-space: nowrap;
+}
+
+.btnLink:not(.filled):hover {
+  background-color: rgba(0, 0, 0, .06);
+}
+
+.filled {
+  display: block;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+  width: 100%;
+}
+
+.filled:hover {
+  background: var(--text-color-primary);
 }
