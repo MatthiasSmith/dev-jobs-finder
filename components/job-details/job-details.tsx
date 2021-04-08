@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from './job-details.module.css';
 import utilStyles from '../../styles/utils.module.css';
 import buttonStyles from '../button/button.module.css';
-import DateString from '../date';
+import DateString from '../date/date';
 
 const JobDetails = ({
   created_at,

@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import utilStyles from '../styles/utils.module.css';
-import DateString from './date';
 import styles from './job-item.module.css';
+import utilStyles from '../../styles/utils.module.css';
+import DateString from '../date/date';
 
 const JobItem = ({
   id,

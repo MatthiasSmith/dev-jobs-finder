@@ -1,7 +1,7 @@
 import useSWR from 'swr';
 
 import fetcher from '../helpers/fetcher';
-import JobItem from '../components/job-item';
+import JobItem from '../components/job-item/job-item';
 import Search from '../components/search/search';
 import { useState } from 'react';
 
