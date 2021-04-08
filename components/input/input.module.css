@@ -1,0 +1,45 @@
+.inputContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.inputContainer::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  bottom: 0.5rem;
+  left: 0;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.18s ease-out;
+}
+
+.inputContainer:focus-within::after {
+  transform: scaleX(1);
+  z-index: 2;
+}
+
+.input {
+  appearance: none;
+  border: none;
+  border-radius: 0.4rem;
+  color: rgba(0,0,0,.87);
+  font-family: 'Roboto';
+  font-size: 1.15rem;
+  height: 4rem;
+  padding-left: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  color: rgba(0,0,0,.48);
+  font-size: 1.15rem;
+}
