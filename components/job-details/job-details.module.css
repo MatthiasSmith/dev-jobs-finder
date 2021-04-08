@@ -1,0 +1,18 @@
+.jobDetails {
+  margin-top: 10rem;
+}
+
+.jobTitleContainer {
+  flex: 1 1 23rem;
+  margin-right: 1.5rem;
+}
+
+.applyLink {
+  flex: 1 0 10rem;
+}
+
+@media screen and (min-width: 39.3125em) {
+  .jobDetails {
+    margin-top: unset;
+  }
+}
