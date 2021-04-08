@@ -43,7 +43,6 @@
   position: absolute;
   top: 91%;
   width: 100%;
-  z-index: 2;
 }
 
 .filters hr {
@@ -62,10 +61,6 @@
   border-top: 1px solid #ccc;
 }
 
-.filters input[type="search"] {
-  width: 87%;
-}
-
 .filters label {
   margin-top: 4px;
   font-size: 1.15rem;
@@ -80,15 +75,6 @@
   margin-right: 1.55rem;
   margin-left: 0.21rem;
   position: relative;
-}
-
-.filters input[type="checkbox"]:focus {
-  outline: 0;
-}
-
-.filters input[type="checkbox"]:focus-visible {
-  outline: 5px auto Highlight;
-  outline: 5px auto -webkit-focus-ring-color;
 }
 
 .filters input[type="checkbox"]::before {

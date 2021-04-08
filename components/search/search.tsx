@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import Input from '../input/input';
 import Button from '../button/button';
 import styles from './search.module.css';
 import utilStyles from '../../styles/utils.module.css';
@@ -51,10 +52,11 @@ const Search = ({
 
   return (
     <form className={styles.searchForm}>
-      <input
+      <Input
+        aria-label='Search by title'
         type='search'
         placeholder='Search by title'
-        className={`${utilStyles.input} ${utilStyles.flex}`}
+        className={utilStyles.flex}
         value={title}
         onChange={handleChangeTitle}
       />
@@ -108,6 +110,7 @@ const Search = ({
           <ul>
             <li className={`${utilStyles.flexRow} ${utilStyles.alignCenter}`}>
               <svg
+                aria-hidden='true'
                 xmlns='http://www.w3.org/2000/svg'
                 height='30px'
                 viewBox='0 0 24 24'
@@ -117,10 +120,10 @@ const Search = ({
                 <path d='M0 0h24v24H0z' fill='none' />
                 <path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z' />
               </svg>
-              <input
+              <Input
+                aria-label='Search by location'
                 type='search'
                 placeholder='Search by location'
-                className={utilStyles.input}
                 value={location}
                 onChange={handleChangeLocation}
               />
@@ -132,6 +135,7 @@ const Search = ({
                 name='fullTime'
                 checked={isFullTime}
                 onChange={handleChangeIsFullTime}
+                className={utilStyles.focusVisible}
               />
               <label htmlFor='fullTime'>Full Time</label>
             </li>
