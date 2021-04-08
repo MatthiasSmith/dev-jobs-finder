@@ -1,7 +1,21 @@
 .header {
-  background: linear-gradient(to bottom right, #00a1ff, cornflowerblue);
+  background: var(--header-bg-gradient);
   color: white;
   height: 8rem;
-  padding: 1.2rem;
+  padding: 1.2rem 0;
   position: relative;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  font-family: sans-serif;
+  padding-left: 1.2rem;
+}
+
+.childrenContainer {
+  margin: 0 auto;
+  max-width: var(--site-max-width);
+  padding: 0 var(--site-side-padding);
 }

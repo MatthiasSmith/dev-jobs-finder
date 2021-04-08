@@ -1,4 +1,10 @@
 /* typography */
+.headingLg {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 2rem;
+}
+
 .headingMd {
   font-size: 1.5rem;
   font-weight: 700;
@@ -27,6 +33,18 @@
   color: rgba(0, 0, 0, .6);
 }
 
+.textColorPrimary {
+  color: var(--text-color-primary);
+}
+
+.textAlignCenter {
+  text-align: center;
+}
+
+.textAlignRight {
+  text-align: right;
+}
+
 /* elements */
 .card {
   background: white;
@@ -36,26 +54,44 @@
   padding: 1rem 1.2rem;
 }
 
-.input {
-  appearance: none;
-  border: none;
-  border-radius: 0.4rem;
-  color: rgba(0,0,0,.87);
-  height: 4rem;
-  padding-left: 1rem;
-  font-family: 'Roboto';
-  font-size: 1.15rem;
-  outline: 0;
-}
-
-.input::placeholder {
-  color: rgba(0,0,0,.48);
-  font-size: 1.15rem;
-}
-
 /* util */
+.srOnly:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
+
+.centeredText {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.focusVisible:focus {
+  outline: none;
+}
+
+.focusVisible:focus-visible {
+  outline: 5px auto Highlight;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
 .noListStyle {
   list-style: none;
+}
+
+.noUnderline {
+  text-decoration: none;
+}
+
+.displayBlock {
+  display: block;
 }
 
 /* layout */
@@ -65,6 +101,10 @@
 
 .alignCenter {
   align-items: center;
+}
+
+.justifyCenter {
+  justify-content: center;
 }
 
 .spaceBetween {
@@ -79,6 +119,10 @@
   flex: 1;
 }
 
+.flexWrap {
+  flex-wrap: wrap;
+}
+
 /* positioning */
 .mb1 {
   margin-bottom: 1rem;
@@ -86,4 +130,9 @@
 
 .mb2 {
   margin-bottom: 2rem;
+}
+
+.headingMargins {
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
 }

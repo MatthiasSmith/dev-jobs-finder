@@ -1,13 +1,12 @@
-import Head from 'next/head';
 import useSWR from 'swr';
 
 import fetcher from '../helpers/fetcher';
 import JobItem from '../components/job-item';
-import Header from '../components/header/header';
 import Search from '../components/search/search';
 import { useState } from 'react';
 
-import styles from '../styles/Home.module.css';
+import utilStyles from '../styles/utils.module.css';
+import Layout from '../components/layout/layout';
 
 export default function Home() {
   const defaultUrl = '/api/jobs';
@@ -56,11 +55,9 @@ export default function Home() {
   };
 
   return (
-    <>
-      <Head>
-        <title>jobfinder | Find tech jobs</title>
-      </Head>
-      <Header>
+    <Layout
+      pageTitle='Find Dev Jobs'
+      headerChildren={
         <Search
           title={title}
           location={location}
@@ -71,25 +68,34 @@ export default function Home() {
           onSearch={performSearch}
           onClear={clearFilters}
         />
-      </Header>
-      <main>
-        {error ? <h2 className={styles.centeredText}>Failed to load</h2> : null}
-        {!data ? (
-          <h2 className={styles.centeredText}>
-            Loading...
-          </h2>
-        ) : !data.length ? (
-          <h2 className={styles.centeredText}>
-            No jobs match your search criteria.
-          </h2>
-        ) : (
-          <ul>
-            {data.map((job) => (
-              <JobItem key={job.id} {...job} />
-            ))}
-          </ul>
-        )}
-      </main>
-    </>
+      }
+      footerChildren={
+        <div
+          className={`${utilStyles.textAlignCenter} ${utilStyles.textSm} ${utilStyles.textColorSecondary}`}
+        >
+          © Copyright {new Date().getFullYear()}
+        </div>
+      }
+    >
+      <h1 className={utilStyles.srOnly}>
+        Find Dev Jobs Using GitHub's Jobs API
+      </h1>
+      {error ? (
+        <h2 className={utilStyles.centeredText}>Failed to load</h2>
+      ) : null}
+      {!error && !data ? (
+        <h2 className={utilStyles.centeredText}>Loading...</h2>
+      ) : !error && !data.length ? (
+        <h2 className={utilStyles.centeredText}>
+          No jobs match your search criteria.
+        </h2>
+      ) : (
+        <ul>
+          {data && data.length
+            ? data.map((job) => <JobItem key={job.id} {...job} />)
+            : null}
+        </ul>
+      )}
+    </Layout>
   );
 }
