@@ -87,7 +87,7 @@ export default function Home() {
           <h2 className={utilStyles.centeredText}>Failed to load</h2>
         ) : null}
         {!error && !data ? (
-          <h2 className={utilStyles.centeredText}>Loading...</h2>
+          <h2 className={utilStyles.centeredText}>Loading jobs...</h2>
         ) : !error && !data.length ? (
           <h2 className={utilStyles.centeredText}>
             No jobs match your search criteria.

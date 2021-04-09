@@ -40,7 +40,16 @@ body {
   box-sizing: border-box;
 }
 
+#__next {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
 main {
-  padding: 4.75rem 0 2.75rem;
+  flex: 1;
   margin: 0 auto;
+  padding: 4.75rem 0 2.75rem;
+  position: relative;
+  width: 100%;
 }

@@ -86,15 +86,18 @@ const JobDetails = ({
           margin: 1.5rem 0 0.75rem;
         }
 
-        .description ul {
+        .description ul,
+        .description ol {
           padding-left: 1.5rem;
         }
 
-        .description ul li {
+        .description ul li,
+        .description ol li {
           margin-bottom: 0.5rem;
         }
 
-        .description ul li:last-of-type {
+        .description ul li:last-of-type,
+        .description ol li:last-of-type {
           margin-bottom: 1rem;
         }
 
@@ -134,6 +137,26 @@ const JobDetails = ({
           font-size: 0.9rem;
           line-height: 1.2em;
           overflow-wrap: anywhere;
+        }
+
+        .how-to-apply ul,
+        .how-to-apply ol {
+          padding-left: 1.5rem;
+        }
+
+        .how-to-apply ul li,
+        .how-to-apply ol li {
+          margin-bottom: 0.5rem;
+        }
+
+        .how-to-apply ul li:first-of-type,
+        .how-to-apply ol li:first-of-type {
+          margin-top: 0.5rem;
+        }
+
+        .how-to-apply ul li:last-of-type,
+        .how-to-apply ol li:last-of-type {
+          margin-bottom: 1rem;
         }
       `}</style>
     </>
