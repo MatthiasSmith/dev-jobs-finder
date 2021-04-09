@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   height: 4rem;
-  margin-top: 3.2rem;
+  margin-top: 3rem;
   padding-right: 0.7rem;
   position: relative;
   z-index: 1;
@@ -13,12 +13,17 @@
 
 .filterButton {
   background: none;
-  margin-left: 0.5rem;
+  margin-left: 0.7rem;
 }
 
 .searchButton {
-  background: linear-gradient(to bottom right, var(--color-primary), cornflowerblue);
+  background: var(--color-primary);
   margin-left: 0.5rem;
+}
+
+.searchButton > span {
+  color: white;
+  padding: 0 1.15rem;
 }
 
 .filterIcon {
@@ -26,7 +31,7 @@
 }
 
 .inverted {
-  background: rgba(0,0,0,.5);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .inverted .filterIcon {
@@ -38,7 +43,7 @@
   box-shadow: var(--medium-shadow);
   border-bottom-left-radius: 0.4rem;
   border-bottom-right-radius: 0.4rem;
-  color: rgba(0,0,0,.87);
+  color: rgba(0, 0, 0, 0.87);
   padding-top: 4px;
   position: absolute;
   top: 91%;
@@ -61,13 +66,19 @@
   border-top: 1px solid #ccc;
 }
 
-.filters label {
+.label {
+  color: rgba(0, 0, 0, 0.87);
   margin-top: 4px;
-  font-size: 1.15rem;
-  font-weight: bold;
 }
 
-.filters input[type="checkbox"] {
+.inputLabel {
+  color: white;
+  font-weight: normal;
+  position: absolute;
+  top: -1.55rem;
+}
+
+.checkbox {
   appearance: none;
   border: none;
   width: 18px;
@@ -77,11 +88,10 @@
   position: relative;
 }
 
-.filters input[type="checkbox"]::before {
+.checkbox::before {
   content: '';
   cursor: pointer;
-  background: #ccc;
-  border: 2px solid #ccc;
+  border: 2px solid #bbb;
   border-radius: 4px;
   width: 100%;
   height: 100%;
@@ -91,7 +101,7 @@
   transition: background-color 0.1s ease-out;
 }
 
-.filters input[type="checkbox"]::after {
+.checkbox::after {
   content: '';
   cursor: pointer;
   box-sizing: unset;
@@ -108,15 +118,65 @@
   transition: transform 0.1s ease-out;
 }
 
-.filters input[type="checkbox"]:checked::before {
+.checkbox:checked::before {
   border-color: var(--color-primary);
   background-color: var(--color-primary);
 }
 
-.filters input[type="checkbox"]:checked::after {
+.checkbox:checked::after {
   transform: rotate(-45deg) scale(0.9);
 }
 
 .filters button {
   margin-left: 0.6rem;
+}
+
+@media screen and (min-width: 39.3125em) {
+  .desktopSearchIcon {
+    display: inline;
+    fill: var(--color-primary);
+    margin-left: 0.75rem;
+  }
+
+  .searchInput {
+    border-right: 1px solid #ddd;
+    margin-left: -0.25rem;
+    margin-right: 0.5rem;
+  }
+
+  .location {
+    max-width: 14rem;
+  }
+
+  .locationInputContainer {
+    border-right: 1px solid #ddd;
+    margin-left: -0.2rem;
+  }
+
+  .searchInput input,
+  .locationInputContainer input {
+    width: 95%;
+  }
+
+  .searchInput::after,
+  .locationInputContainer::after {
+    width: calc(100% - 2rem);
+  }
+
+  .filterButton {
+    display: none;
+  }
+
+  .mobileSearchIcon {
+    display: none;
+  }
+
+  .checkbox {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .searchButton {
+    margin-left: 1rem;
+  }
 }

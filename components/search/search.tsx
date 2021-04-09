@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Input from '../input/input';
 import Button from '../button/button';
@@ -24,7 +24,14 @@ const Search = ({
   onSearch: Function;
   onClear: Function;
 }) => {
+  const [isSmScreen, setIsSmScreen] = useState(false);
   const [filtersVisible, setFiltersVisible] = useState(false);
+
+  useEffect(
+    () => setIsSmScreen(document.documentElement.clientWidth < 629),
+    []
+  );
+
   const handleSubmit = (event) => {
     event.preventDefault();
     onSearch();
@@ -51,119 +58,188 @@ const Search = ({
   };
 
   return (
-    <form className={styles.searchForm}>
-      <Input
-        aria-label='Search by title'
-        type='search'
-        placeholder='Search by title'
-        className={utilStyles.flex}
-        value={title}
-        onChange={handleChangeTitle}
-      />
-      <Button
-        type='button'
-        title={filtersVisible ? 'hide extra filters' : 'show extra filters'}
-        onClick={toggleFilterVisibility}
-        className={`${styles.filterButton} ${
-          filtersVisible ? styles.inverted : ''
-        }`}
-        icon='true'
-      >
-        <svg
-          aria-hidden='true'
-          xmlns='http://www.w3.org/2000/svg'
-          enableBackground='new 0 0 24 24'
-          height='30px'
-          viewBox='0 0 24 24'
-          width='30px'
-          className={styles.filterIcon}
+    <div
+      className={`${utilStyles.maxSiteWidth} ${utilStyles.contentContainer}`}
+    >
+      <form className={styles.searchForm}>
+        <div
+          className={`${utilStyles.flex} ${utilStyles.flexRow} ${utilStyles.alignCenter}`}
         >
-          <g>
-            <path d='M0,0h24 M24,24H0' fill='none' />
-            <path d='M4.25,5.61C6.27,8.2,10,13,10,13v6c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1v-6c0,0,3.72-4.8,5.74-7.39 C20.25,4.95,19.78,4,18.95,4H5.04C4.21,4,3.74,4.95,4.25,5.61z' />
-            <path d='M0,0h24v24H0V0z' fill='none' />
-          </g>
-        </svg>
-      </Button>
-      <Button
-        type='submit'
-        title='search'
-        onClick={handleSubmit}
-        className={`${utilStyles.btn} ${styles.searchButton}`}
-        icon='true'
-      >
-        <svg
-          aria-hidden='true'
-          xmlns='http://www.w3.org/2000/svg'
-          height='30px'
-          viewBox='0 0 24 24'
-          width='30px'
-          fill='#FFFFFF'
-        >
-          <path d='M0 0h24v24H0z' fill='none' />
-          <path d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' />
-        </svg>
-      </Button>
-      {filtersVisible ? (
-        <div className={styles.filters}>
-          <hr />
-          <ul>
-            <li className={`${utilStyles.flexRow} ${utilStyles.alignCenter}`}>
-              <svg
-                aria-hidden='true'
-                xmlns='http://www.w3.org/2000/svg'
-                height='30px'
-                viewBox='0 0 24 24'
-                width='30px'
-                fill='#00a1ff'
-              >
-                <path d='M0 0h24v24H0z' fill='none' />
-                <path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z' />
-              </svg>
-              <Input
-                aria-label='Search by location'
-                type='search'
-                placeholder='Search by location'
-                value={location}
-                onChange={handleChangeLocation}
-              />
-            </li>
-            <li className={`${utilStyles.flexRow} ${utilStyles.alignCenter}`}>
-              <input
-                type='checkbox'
-                id='fullTime'
-                name='fullTime'
-                checked={isFullTime}
-                onChange={handleChangeIsFullTime}
-                className={utilStyles.focusVisible}
-              />
-              <label htmlFor='fullTime'>Full Time</label>
-            </li>
-            {
-              <li
-                className={`${utilStyles.flexRow} ${utilStyles.alignCenter} ${utilStyles.flexEnd}`}
-              >
-                <Button
-                  type='button'
-                  onClick={handleClearFilters}
-                  secondary='true'
-                >
-                  Clear Filters
-                </Button>
-                <Button
-                  type='button'
-                  onClick={handleSubmit}
-                  primary='true'
-                  className={utilStyles.ml1}
-                >
-                  Apply Filters
-                </Button>
-              </li>
+          <svg
+            aria-hidden='true'
+            xmlns='http://www.w3.org/2000/svg'
+            height='30px'
+            viewBox='0 0 24 24'
+            width='30px'
+            className={`${styles.desktopSearchIcon} ${utilStyles.hiddenSm}`}
+            focusable='false'
+          >
+            <path d='M0 0h24v24H0z' fill='none' />
+            <path d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' />
+          </svg>
+          <Input
+            aria-label='Search by title'
+            type='search'
+            name='search'
+            placeholder={
+              isSmScreen
+                ? 'Search by title, company...'
+                : 'Search by title, company, expertise...'
             }
-          </ul>
+            className={`${styles.searchInput} ${utilStyles.flex}`}
+            value={title}
+            onChange={handleChangeTitle}
+          />
         </div>
-      ) : null}
-    </form>
+        <div
+          className={`${styles.location} ${utilStyles.flex} ${utilStyles.flexRow} ${utilStyles.alignCenter} ${utilStyles.hiddenSm}`}
+        >
+          <svg
+            aria-hidden='true'
+            xmlns='http://www.w3.org/2000/svg'
+            height='30px'
+            viewBox='0 0 24 24'
+            width='30px'
+            fill='#00a1ff'
+            focusable='false'
+          >
+            <path d='M0 0h24v24H0z' fill='none' />
+            <path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z' />
+          </svg>
+          <Input
+            aria-label='Search by location'
+            type='search'
+            placeholder='Search by location'
+            value={location}
+            onChange={handleChangeLocation}
+            className={styles.locationInputContainer}
+          />
+        </div>
+        <div className={`${utilStyles.hiddenSm}`}>
+          <input
+            type='checkbox'
+            id='fullTime'
+            name='fullTime'
+            checked={isFullTime}
+            onChange={handleChangeIsFullTime}
+            className={`${styles.checkbox} ${utilStyles.focusVisible}`}
+          />
+          <label htmlFor='fullTime' className={styles.label}>
+            Full Time
+          </label>
+        </div>
+        <Button
+          type='button'
+          title={filtersVisible ? 'hide extra filters' : 'show extra filters'}
+          onClick={toggleFilterVisibility}
+          className={`${styles.filterButton} ${
+            filtersVisible ? styles.inverted : ''
+          }`}
+          icon='true'
+        >
+          <svg
+            aria-hidden='true'
+            xmlns='http://www.w3.org/2000/svg'
+            enableBackground='new 0 0 24 24'
+            height='30px'
+            viewBox='0 0 24 24'
+            width='30px'
+            className={styles.filterIcon}
+            focusable='false'
+          >
+            <g>
+              <path d='M0,0h24 M24,24H0' fill='none' />
+              <path d='M4.25,5.61C6.27,8.2,10,13,10,13v6c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1v-6c0,0,3.72-4.8,5.74-7.39 C20.25,4.95,19.78,4,18.95,4H5.04C4.21,4,3.74,4.95,4.25,5.61z' />
+              <path d='M0,0h24v24H0V0z' fill='none' />
+            </g>
+          </svg>
+        </Button>
+        <Button
+          type='submit'
+          title='search'
+          onClick={handleSubmit}
+          className={`${utilStyles.btn} ${styles.searchButton}`}
+          icon='true'
+        >
+          <svg
+            aria-hidden='true'
+            xmlns='http://www.w3.org/2000/svg'
+            height='30px'
+            viewBox='0 0 24 24'
+            width='30px'
+            fill='#FFFFFF'
+            className={styles.mobileSearchIcon}
+            focusable='false'
+          >
+            <path d='M0 0h24v24H0z' fill='none' />
+            <path d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' />
+          </svg>
+          <span className={`${utilStyles.hiddenSm}`}>Search</span>
+        </Button>
+        {filtersVisible ? (
+          <div className={styles.filters}>
+            <hr />
+            <ul>
+              <li className={`${utilStyles.flexRow} ${utilStyles.alignCenter}`}>
+                <svg
+                  aria-hidden='true'
+                  xmlns='http://www.w3.org/2000/svg'
+                  height='30px'
+                  viewBox='0 0 24 24'
+                  width='30px'
+                  fill='#00a1ff'
+                  focusable='false'
+                >
+                  <path d='M0 0h24v24H0z' fill='none' />
+                  <path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z' />
+                </svg>
+                <Input
+                  aria-label='Search by location'
+                  type='search'
+                  placeholder='Search by location'
+                  value={location}
+                  onChange={handleChangeLocation}
+                />
+              </li>
+              <li className={`${utilStyles.flexRow} ${utilStyles.alignCenter}`}>
+                <input
+                  type='checkbox'
+                  id='fullTime'
+                  name='fullTime'
+                  checked={isFullTime}
+                  onChange={handleChangeIsFullTime}
+                  className={`${styles.checkbox} ${utilStyles.focusVisible}`}
+                />
+                <label htmlFor='fullTime' className={styles.label}>
+                  Full Time Only
+                </label>
+              </li>
+              {
+                <li
+                  className={`${utilStyles.flexRow} ${utilStyles.alignCenter} ${utilStyles.flexEnd}`}
+                >
+                  <Button
+                    type='button'
+                    onClick={handleClearFilters}
+                    secondary='true'
+                  >
+                    Clear Filters
+                  </Button>
+                  <Button
+                    type='button'
+                    onClick={handleSubmit}
+                    primary='true'
+                    className={utilStyles.ml1}
+                  >
+                    Apply Filters
+                  </Button>
+                </li>
+              }
+            </ul>
+          </div>
+        ) : null}
+      </form>
+    </div>
   );
 };
 
