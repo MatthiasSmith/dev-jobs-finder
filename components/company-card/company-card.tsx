@@ -14,45 +14,49 @@ const CompanyCard = ({
   company_url: string;
 }) => {
   return (
-    <article
-      className={`${styles.companyCard}
+    <div
+      className={`${styles.companyCardContainer} ${utilStyles.contentContainer}`}
+    >
+      <article
+        className={`${styles.companyCard}
       ${utilStyles.flexRow}
       ${utilStyles.flexWrap}
       ${utilStyles.alignCenter}
       ${utilStyles.justifyCenter}`}
-    >
-      <div className={styles.companyLogoContainer}>
-        <Image
-          src={company_logo}
-          width={85}
-          height={85}
-          layout='intrinsic'
-          objectFit='contain'
-          alt={`Logo for ${company}.`}
-        />
-      </div>
-      <div className={`${utilStyles.flex} ${styles.companyInfo}`}>
-        <h2 className={`${styles.companyName} ${utilStyles.headingSm}`}>
-          {company}
-        </h2>
+      >
+        <div className={styles.companyLogoContainer}>
+          <Image
+            src={company_logo}
+            width={85}
+            height={85}
+            layout='intrinsic'
+            objectFit='contain'
+            alt={`Logo for ${company}.`}
+          />
+        </div>
+        <div className={`${utilStyles.flex} ${styles.companyInfo}`}>
+          <h2 className={`${styles.companyName} ${utilStyles.headingSm}`}>
+            {company}
+          </h2>
+          {company_url ? (
+            <span
+              className={`${utilStyles.textColorSecondary} ${utilStyles.textSm}`}
+            >
+              {company_url}
+            </span>
+          ) : null}
+        </div>
         {company_url ? (
-          <span
-            className={`${utilStyles.textColorSecondary} ${utilStyles.textSm}`}
+          <a
+            className={`${styles.companyLink} ${buttonStyles.btnLink}`}
+            href={company_url}
+            rel='external nofollow noopener'
           >
-            {company_url}
-          </span>
+            Company Site
+          </a>
         ) : null}
-      </div>
-      {company_url ? (
-        <a
-          className={`${styles.companyLink} ${buttonStyles.btnLink}`}
-          href={company_url}
-          rel='external nofollow noopener'
-        >
-          Company Site
-        </a>
-      ) : null}
-    </article>
+      </article>
+    </div>
   );
 };
 

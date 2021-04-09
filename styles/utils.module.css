@@ -50,11 +50,21 @@
   background: white;
   border-radius: 6px;
   box-shadow: var(--card-box-shadow);
-  margin: 0 auto;
   padding: 1rem 1.2rem;
 }
 
+.contentContainer {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--site-side-padding);
+  padding-right: var(--site-side-padding);
+}
+
 /* util */
+.maxSiteWidth {
+  max-width: var(--site-max-width);
+}
+
 .srOnly:not(:focus):not(:active) {
   clip: rect(0 0 0 0); 
   clip-path: inset(50%);

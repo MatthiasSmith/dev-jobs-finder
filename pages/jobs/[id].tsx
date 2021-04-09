@@ -42,12 +42,17 @@ const Job = () => {
         )
       }
     >
-      {error ? <h2 className={utilStyles.centeredText}>Failed</h2> : null}
-      {!data ? (
-        <h2 className={utilStyles.centeredText}>Loading...</h2>
-      ) : (
-        <JobDetails applyUrl={applyUrl} {...data} />
-      )}
+      <div
+        className={utilStyles.contentContainer}
+        style={{ maxWidth: 'var(--job-details-width)' }}
+      >
+        {error ? <h2 className={utilStyles.centeredText}>Failed</h2> : null}
+        {!data ? (
+          <h2 className={utilStyles.centeredText}>Loading...</h2>
+        ) : (
+          <JobDetails applyUrl={applyUrl} {...data} />
+        )}
+      </div>
     </Layout>
   );
 };

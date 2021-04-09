@@ -1,3 +1,7 @@
+.companyCardContainer {
+  max-width: var(--job-details-width);
+}
+
 .companyCard {
   background: white;
   border-radius: 0.4rem;

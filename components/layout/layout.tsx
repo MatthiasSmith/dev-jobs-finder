@@ -18,7 +18,7 @@ const Layout = ({
   return (
     <>
       <Head>
-        <title>devjobfinder {pageTitle ? `| ${pageTitle}` : ''}</title>
+        <title>devjobsfinder {pageTitle ? `| ${pageTitle}` : ''}</title>
       </Head>
       <Header>{headerChildren ? headerChildren : null}</Header>
       <main>{children}</main>

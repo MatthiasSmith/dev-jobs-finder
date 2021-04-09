@@ -77,25 +77,29 @@ export default function Home() {
         </div>
       }
     >
-      <h1 className={utilStyles.srOnly}>
-        Find Dev Jobs Using GitHub's Jobs API
-      </h1>
-      {error ? (
-        <h2 className={utilStyles.centeredText}>Failed to load</h2>
-      ) : null}
-      {!error && !data ? (
-        <h2 className={utilStyles.centeredText}>Loading...</h2>
-      ) : !error && !data.length ? (
-        <h2 className={utilStyles.centeredText}>
-          No jobs match your search criteria.
-        </h2>
-      ) : (
-        <ul>
-          {data && data.length
-            ? data.map((job) => <JobItem key={job.id} {...job} />)
-            : null}
-        </ul>
-      )}
+      <div
+        className={`${utilStyles.contentContainer} ${utilStyles.maxSiteWidth}`}
+      >
+        <h1 className={utilStyles.srOnly}>
+          Find Dev Jobs Using GitHub's Jobs API
+        </h1>
+        {error ? (
+          <h2 className={utilStyles.centeredText}>Failed to load</h2>
+        ) : null}
+        {!error && !data ? (
+          <h2 className={utilStyles.centeredText}>Loading...</h2>
+        ) : !error && !data.length ? (
+          <h2 className={utilStyles.centeredText}>
+            No jobs match your search criteria.
+          </h2>
+        ) : (
+          <ul>
+            {data && data.length
+              ? data.map((job) => <JobItem key={job.id} {...job} />)
+              : null}
+          </ul>
+        )}
+      </div>
     </Layout>
   );
 }

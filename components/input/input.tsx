@@ -14,6 +14,8 @@ const Input = (props: React.ComponentPropsWithoutRef<'input'>) => {
       <input
         aria-label={props['aria-label']}
         type={props.type}
+        id={props.name}
+        name={props.name}
         placeholder={props.placeholder}
         className={styles.input}
         value={props.value}

@@ -7,6 +7,5 @@
 
 .childrenContainer {
   margin: 0 auto;
-  max-width: var(--site-max-width);
   padding: 0 var(--site-side-padding);
 }

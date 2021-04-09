@@ -13,11 +13,15 @@ const JobDetailsFooter = ({
 }) => {
   return (
     <div
-      className={`${utilStyles.flexRow} ${utilStyles.alignCenter}`}
+      className={`${styles.jobDetailsFooter} ${utilStyles.contentContainer} ${utilStyles.flexRow} ${utilStyles.alignCenter}`}
     >
-      <div className={`${styles.companyInfo} ${utilStyles.flex}`}>
+      <div className={`${styles.companyInfo}`}>
         <h2 className={`${utilStyles.headingMd}`}>{title}</h2>
-        <span className={`${utilStyles.textSm} ${utilStyles.textColorSecondary}`}>{company}</span>
+        <span
+          className={`${utilStyles.textSm} ${utilStyles.textColorSecondary}`}
+        >
+          {company}
+        </span>
       </div>
       <a
         className={`${buttonStyles.btnLink} ${buttonStyles.filled}`}
