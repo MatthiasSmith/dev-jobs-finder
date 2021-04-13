@@ -1,5 +1,7 @@
 .companyCardContainer {
   max-width: var(--job-details-width);
+  position: relative;
+  z-index: 1;
 }
 
 .companyCard {
@@ -35,6 +37,11 @@
 
 .companyLink {
   margin-top: 0.75rem;
+}
+
+.externalLinkIcon {
+  margin-left: 2px;
+  margin-bottom: -1px;
 }
 
 @media screen and (min-width: 39.3125em) {
