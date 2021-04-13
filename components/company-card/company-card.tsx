@@ -64,9 +64,9 @@ const CompanyCard = ({
               <path
                 fill='none'
                 stroke='#048de0'
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                stroke-width='1.5'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='1.5'
                 d='M15.86 7.61v10.22c0 .69-.56 1.25-1.25 1.25H2.37c-.69 0-1.25-.56-1.25-1.25V5.6c0-.69.56-1.25 1.25-1.25h9.75m6.76 1.48l-.1-4.82M13.97.92l4.81.09m-9.42 9.46l8.5-8.5'
               ></path>
             </svg>
