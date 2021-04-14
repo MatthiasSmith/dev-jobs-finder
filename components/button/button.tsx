@@ -16,6 +16,7 @@ const Button = (props: ButtonProps) => {
   return (
     <button
       {...props}
+      type={props.type || 'button'}
       className={`${styles.btn}
       ${utilStyles.focusVisible}
       ${props.primary ? styles.primary : ''}
