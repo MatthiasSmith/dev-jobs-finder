@@ -1,57 +1,76 @@
-import useSWR from 'swr';
-
-import fetcher from '../helpers/fetcher';
-import JobItem from '../components/job-item/job-item';
-import Search from '../components/search/search';
 import { useState } from 'react';
 
 import utilStyles from '../styles/utils.module.css';
+import styles from '../styles/home.module.css';
+import getQueryParamString from '../helpers/get-query-param-string';
+import Search from '../components/search/search';
 import Layout from '../components/layout/layout';
+import Button from '../components/button/button';
+import JobList from '../components/job-list/job-list';
 
 export default function Home() {
   const defaultUrl = '/api/jobs';
-  const [title, setTitle] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
   const [location, setLocation] = useState('');
   const [isFullTime, setIsFullTime] = useState(false);
+  const [pageNum, setPageNum] = useState(1);
   const [url, setUrl] = useState(defaultUrl);
-  const { data, error } = useSWR(url, fetcher);
+  const [showLoadMore, setShowLoadMore] = useState(false);
+  const [isFetching, setIsFetching] = useState(true);
+  const pages = [];
 
-  const performSearch = () => {
+  const handleFetch = (numItems) => {
+    setShowLoadMore(numItems === 50);
+    setIsFetching(false);
+  };
+
+  for (let i = 1; i <= pageNum; i++) {
+    pages.push(
+      <JobList url={url} pageNum={i} key={i} onDataLoaded={handleFetch} />
+    );
+  }
+
+  const addPage = () => {
+    setPageNum(pageNum + 1);
+    setIsFetching(true);
+  };
+
+  const formatSearchUrl = () => {
     let newUrl = defaultUrl;
-    if (title.length || location.length || isFullTime) {
-      newUrl += '?';
-    }
-    newUrl += title.length ? `search=${title.trim()}` : '';
-    newUrl += location.length
-      ? newUrl.indexOf('?') > -1
-        ? `&location=${location.trim()}`
-        : `location=${location.trim()}`
+    newUrl += searchTerm.trim().length
+      ? getQueryParamString(newUrl, 'search', searchTerm.trim())
+      : '';
+    newUrl += location.trim().length
+      ? getQueryParamString(newUrl, 'location', location.trim())
       : '';
     newUrl += isFullTime
-      ? newUrl.indexOf('?') > -1
-        ? '&full_time=true'
-        : 'full_time=true'
+      ? getQueryParamString(newUrl, 'full_time', 'true')
       : '';
+    setIsFetching(true);
     setUrl(newUrl);
   };
 
   const clearFilters = () => {
-    setTitle('');
+    setSearchTerm('');
     setLocation('');
     setIsFullTime(false);
+    setPageNum(1);
     setUrl(defaultUrl);
   };
 
   const changeTitle = (event) => {
-    setTitle(event.target.value);
+    setSearchTerm(event.target.value);
+    setPageNum(1);
   };
 
   const changeLocation = (event) => {
     setLocation(event.target.value);
+    setPageNum(1);
   };
 
   const changeFullTime = () => {
     setIsFullTime(!isFullTime);
+    setPageNum(1);
   };
 
   return (
@@ -59,13 +78,13 @@ export default function Home() {
       pageTitle='Find Dev Jobs'
       headerChildren={
         <Search
-          title={title}
+          title={searchTerm}
           location={location}
           isFullTime={isFullTime}
           onChangeTitle={changeTitle}
           onChangeLocation={changeLocation}
           onChangeIsFullTime={changeFullTime}
-          onSearch={performSearch}
+          onSearch={formatSearchUrl}
           onClear={clearFilters}
         />
       }
@@ -83,21 +102,15 @@ export default function Home() {
         <h1 className={utilStyles.srOnly}>
           Find Dev Jobs Using GitHub's Jobs API
         </h1>
-        {error ? (
-          <h2 className={utilStyles.centeredText}>Failed to load</h2>
-        ) : null}
-        {!error && !data ? (
-          <h2 className={utilStyles.centeredText}>Loading jobs...</h2>
-        ) : !error && !data.length ? (
-          <h2 className={utilStyles.centeredText}>
-            No jobs match your search criteria.
-          </h2>
-        ) : (
-          <ul>
-            {data && data.length
-              ? data.map((job) => <JobItem key={job.id} {...job} />)
-              : null}
-          </ul>
+        {pages}
+        {showLoadMore && !isFetching && (
+          <Button
+            primary='true'
+            className={styles.loadMoreButton}
+            onClick={addPage}
+          >
+            Load more
+          </Button>
         )}
       </div>
     </Layout>

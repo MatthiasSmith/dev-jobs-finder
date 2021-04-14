@@ -4,20 +4,13 @@ import { NextApiRequest, NextApiResponse } from 'next';
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   let url = 'https://jobs.github.com/positions.json';
 
-  if (req.query.search || req.query.location || req.query.full_time) {
-    url += '?';
-  }
-  url += req.query.search ? `search=${req.query.search}` : '';
-  url += req.query.location
-    ? url.indexOf('?') > -1
-      ? `&location=${req.query.location}`
-      : `location=${req.query.location}`
-    : '';
-  url += req.query.full_time
-    ? url.indexOf('?') > -1
-      ? '&full_time=true'
-      : 'full_time=true'
-    : '';
+  const page = Number(req.query.page);
+  const { search, location, full_time } = req.query;
+
+  url += `?page=${page}`;
+  url += search ? `&search=${search}` : '';
+  url += location ? `&location=${location}` : '';
+  url += full_time ? `&full_time=true` : '';
 
   try {
     const response = await axios.get(url);

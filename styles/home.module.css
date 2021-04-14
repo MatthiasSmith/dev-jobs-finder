@@ -1,0 +1,5 @@
+.loadMoreButton {
+  display: block;
+  margin: 0 auto;
+  width: min(100%, 29.6875em);
+}
