@@ -7,5 +7,10 @@
 
 .childrenContainer {
   margin: 0 auto;
-  padding: 0 var(--site-side-padding);
+}
+
+@media screen and (min-width: 39.3125em) {
+  .childrenContainer {
+    padding: 0 var(--site-side-padding);
+  }
 }
