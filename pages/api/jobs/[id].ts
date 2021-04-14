@@ -1,14 +1,16 @@
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
-// const data = require('../../data/jobs-details.json');
-
-const githubApi = 'https://jobs.github.com/positions/';
+import { gitHubJobsApiUrl } from '../../../data/github-jobs-api-url';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.query.id === 'undefined')
-    return res.status(400).json({ error: 'Bad Request' });
+  const { id } = req.query;
 
-  let url = `${githubApi}${req.query.id}.json`;
+  if (!id) {
+    return res.status(400).json({ error: 'Bad Request' });
+  }
+
+  const url = `${gitHubJobsApiUrl}/${id}.json`;
+
   try {
     const response = await axios.get(url);
     res.send(response.data);

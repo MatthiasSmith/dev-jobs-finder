@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { gitHubJobsApiUrl } from '../../data/github-jobs-api-url';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  let url = 'https://jobs.github.com/positions.json';
+  let url = `${gitHubJobsApiUrl}.json`;
 
   const page = Number(req.query.page);
   const { search, location, full_time } = req.query;
