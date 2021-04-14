@@ -32,7 +32,7 @@ const JobItem = ({
             className={`${utilStyles.flexRow} ${utilStyles.alignCenter} ${utilStyles.mb1}`}
           >
             <div className={`${styles.logoContainer}`}>
-              {company_logo ? (
+              {company_logo && (
                 <Image
                   src={company_logo}
                   width={65}
@@ -41,7 +41,7 @@ const JobItem = ({
                   objectFit='contain'
                   className={styles.companyLogo}
                 ></Image>
-              ) : null}
+              )}
             </div>
             <div>
               <span className={utilStyles.textColorSecondary}>{company}</span>
@@ -52,11 +52,10 @@ const JobItem = ({
             className={`${utilStyles.textSm} ${utilStyles.flexRow} ${utilStyles.alignCenter} ${utilStyles.spaceBetween} ${utilStyles.textColorSecondary}`}
           >
             <div>
-              <span>{type}</span> - <span className={utilStyles.textCapitalize}>{location}</span>
+              <span>{type}</span> -{' '}
+              <span className={utilStyles.textCapitalize}>{location}</span>
             </div>
-            <div
-              className={`${utilStyles.textColorSecondary}`}
-            >
+            <div className={`${utilStyles.textColorSecondary}`}>
               <DateString dateString={created_at} />
             </div>
           </div>

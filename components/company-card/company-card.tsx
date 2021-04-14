@@ -25,14 +25,16 @@ const CompanyCard = ({
       ${utilStyles.justifyCenter}`}
       >
         <div className={styles.companyLogoContainer}>
-          <Image
-            src={company_logo}
-            width={85}
-            height={85}
-            layout='intrinsic'
-            objectFit='contain'
-            alt={`Logo for ${company}.`}
-          />
+          {company_logo && (
+            <Image
+              src={company_logo}
+              width={85}
+              height={85}
+              layout='intrinsic'
+              objectFit='contain'
+              alt={`Logo for ${company}.`}
+            />
+          )}
         </div>
         <div className={`${utilStyles.flex} ${styles.companyInfo}`}>
           <h2 className={`${styles.companyName} ${utilStyles.headingSm}`}>
