@@ -31,8 +31,8 @@ const JobItem = ({
           <div
             className={`${utilStyles.flexRow} ${utilStyles.alignCenter} ${utilStyles.mb1}`}
           >
-            <div className={`${styles.logoContainer}`}>
-              {company_logo && (
+            {company_logo && (
+              <div className={`${styles.logoContainer}`}>
                 <Image
                   src={company_logo}
                   width={65}
@@ -41,8 +41,8 @@ const JobItem = ({
                   objectFit='contain'
                   className={styles.companyLogo}
                 ></Image>
-              )}
-            </div>
+              </div>
+            )}
             <div>
               <span className={utilStyles.textColorSecondary}>{company}</span>
               <h3 className={utilStyles.headingSm}>{title}</h3>
