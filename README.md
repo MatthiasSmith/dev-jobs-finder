@@ -3,6 +3,7 @@
 ## Table of contents
 
 - [Overview](#overview)
+  - [Screenshots](#screenshots)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -12,6 +13,12 @@
 
 ## Overview
 
+### Screenshots
+#### Search Page
+![](screenshots/dev-jobs-finder-homepage.jpg)
+
+#### Job Details Page
+![](screenshots/dev-jobs-finder-job-details-page.jpg)
 ### Links
 
 - Live Site URL: [Dev Jobs Finder](https://dev-jobs-finder-matthiassmith.vercel.app/)
