@@ -1,13 +1,14 @@
+import { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import { useRouter } from 'next/router';
 
 import fetcher from '../../helpers/fetcher';
+import utilStyles from '../../styles/utils.module.css';
 import JobDetails from '../../components/job-details/job-details';
 import JobDetailsFooter from '../../components/job-details/job-details-footer';
 import Layout from '../../components/layout/layout';
-import utilStyles from '../../styles/utils.module.css';
 import CompanyCard from '../../components/company-card/company-card';
-import { useEffect, useState } from 'react';
+import Loading from '../../components/loading/loading';
 
 const Job = () => {
   const router = useRouter();
@@ -43,10 +44,12 @@ const Job = () => {
       <div
         className={utilStyles.contentContainer}
         style={{ maxWidth: 'var(--job-details-width)' }}
+        aria-live='polite'
+        aria-busy={!data && !error}
       >
         {error ? <h2 className={utilStyles.centeredText}>Failed</h2> : null}
         {!data ? (
-          <h2 className={utilStyles.centeredText}>Loading...</h2>
+          <Loading className={utilStyles.centeredOnPage} />
         ) : (
           <JobDetails applyUrl={applyUrl} {...data} />
         )}

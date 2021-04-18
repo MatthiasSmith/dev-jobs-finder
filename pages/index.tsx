@@ -98,6 +98,8 @@ export default function Home() {
     >
       <div
         className={`${utilStyles.contentContainer} ${utilStyles.maxSiteWidth}`}
+        aria-live='polite'
+        aria-busy={isFetching}
       >
         <h1 className={utilStyles.srOnly}>
           Find Dev Jobs Using GitHub's Jobs API

@@ -5,6 +5,7 @@ import getQueryParamString from '../../helpers/get-query-param-string';
 import fetcher from '../../helpers/fetcher';
 import utilStyles from '../../styles/utils.module.css';
 import JobItem from '../job-item/job-item';
+import Loading from '../loading/loading';
 
 const JobList = ({
   url,
@@ -35,13 +36,12 @@ const JobList = ({
   }
   if (!data) {
     return (
-      <h2
+      <Loading
+        text='Loading Jobs...'
         className={`${
-          pageNum === 1 ? utilStyles.centeredText : utilStyles.textAlignCenter
+          pageNum === 1 ? utilStyles.centeredOnPage : utilStyles.textAlignCenter
         }`}
-      >
-        Loading jobs...
-      </h2>
+      />
     );
   }
   if (!data.length) {
