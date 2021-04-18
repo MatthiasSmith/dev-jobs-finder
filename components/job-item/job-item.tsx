@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styles from './job-item.module.css';
 import utilStyles from '../../styles/utils.module.css';
 import DateString from '../date/date';
+import addFadeInClass from '../../helpers/addFadeInClass';
 
 const JobItem = ({
   id,
@@ -39,7 +40,7 @@ const JobItem = ({
                   height={65}
                   layout='fixed'
                   objectFit='contain'
-                  className={styles.companyLogo}
+                  onLoad={addFadeInClass}
                 ></Image>
               </div>
             )}
@@ -55,7 +56,9 @@ const JobItem = ({
               <span>{type}</span> -{' '}
               <span className={utilStyles.textCapitalize}>{location}</span>
             </div>
-            <div className={`${utilStyles.textColorSecondary}`}>
+            <div
+              className={`${utilStyles.textColorSecondary} ${utilStyles.ml1}`}
+            >
               <DateString dateString={created_at} />
             </div>
           </div>

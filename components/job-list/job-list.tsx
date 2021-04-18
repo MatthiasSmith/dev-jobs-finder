@@ -53,7 +53,7 @@ const JobList = ({
   }
 
   return (
-    <ul>
+    <ul className={utilStyles.moveAndFadeIn}>
       {data.map((job) => (
         <JobItem key={job.id} {...job} />
       ))}

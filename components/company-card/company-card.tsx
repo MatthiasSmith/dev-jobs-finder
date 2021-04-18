@@ -1,8 +1,7 @@
-import Image from 'next/image';
-
 import styles from './company-card.module.css';
 import utilStyles from '../../styles/utils.module.css';
 import buttonStyles from '../button/button.module.css';
+import NextPlaceholderImage from '../next-placeholder-image/next-placeholder-image';
 
 const CompanyCard = ({
   company,
@@ -25,18 +24,22 @@ const CompanyCard = ({
       ${utilStyles.justifyCenter}`}
       >
         <div className={styles.companyLogoContainer}>
-          {company_logo && (
-            <Image
+          {
+            <NextPlaceholderImage
+              placeholderElement={<div className={styles.logoBg}></div>}
+              priority={true}
               src={company_logo}
               width={85}
               height={85}
               layout='intrinsic'
               objectFit='contain'
-              alt={`Logo for ${company}.`}
+              alt=''
             />
-          )}
+          }
         </div>
-        <div className={`${utilStyles.flex} ${styles.companyInfo}`}>
+        <div
+          className={`${styles.companyInfo} ${utilStyles.flex} ${utilStyles.fadeIn}`}
+        >
           <h2 className={`${styles.companyName} ${utilStyles.headingSm}`}>
             {company}
           </h2>
@@ -50,7 +53,7 @@ const CompanyCard = ({
         </div>
         {company_url ? (
           <a
-            className={`${styles.companyLink} ${buttonStyles.btnLink}`}
+            className={`${styles.companyLink} ${buttonStyles.btnLink} ${utilStyles.fadeIn}`}
             href={company_url}
             rel='external nofollow noopener noreferrer'
             target='_blank'

@@ -29,9 +29,7 @@ const Job = () => {
   return (
     <Layout
       pageTitle='Job Details'
-      headerChildren={
-        !data || error ? null : <CompanyCard applyUrl={applyUrl} {...data} />
-      }
+      headerChildren={<CompanyCard applyUrl={applyUrl} {...data} />}
       footerChildren={
         !data || error ? null : (
           <JobDetailsFooter

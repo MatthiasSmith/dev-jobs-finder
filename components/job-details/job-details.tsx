@@ -24,7 +24,9 @@ const JobDetails = ({
 }) => {
   return (
     <>
-      <article className={`${styles.jobDetails} ${utilStyles.card}`}>
+      <article
+        className={`${styles.jobDetails} ${utilStyles.card} ${utilStyles.moveAndFadeIn}`}
+      >
         <Link href='/'>
           <a
             className={`${utilStyles.noUnderline}
