@@ -107,7 +107,7 @@ export default function Home() {
         {pages}
         {showLoadMore && !isFetching && (
           <Button
-            primary='true'
+            primary={true}
             className={styles.loadMoreButton}
             onClick={addPage}
           >
