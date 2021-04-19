@@ -46,7 +46,8 @@ Making use of [useSWR](https://swr.vercel.app/), was very enjoyable. It made set
 
 ### Continued development
 
-While I've implemented the ability to load more jobs indefinitely, I should still improve performance by limiting the amount of rendered items on screen.
+While I've implemented the ability to load more jobs indefinitely, I should still improve performance by limiting the amount of rendered items on screen. I would 
+also like to add a dark mode option to the application.
 
 ## Author
 
