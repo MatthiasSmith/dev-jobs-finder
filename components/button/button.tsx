@@ -3,9 +3,9 @@ import styles from './button.module.css';
 import utilStyles from '../../styles/utils.module.css';
 
 interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
-  primary?: string;
-  secondary?: string;
-  icon?: string;
+  primary?: boolean;
+  secondary?: boolean;
+  icon?: boolean;
 }
 
 const Button = (props: ButtonProps) => {
