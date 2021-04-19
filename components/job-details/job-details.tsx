@@ -77,6 +77,7 @@ const JobDetails = ({
       <style global jsx>{`
         .description {
           margin-top: 0.75rem;
+          overflow-x: scroll;
         }
 
         .description p:not(:last-of-type) {
@@ -101,6 +102,10 @@ const JobDetails = ({
         .description ul li:last-of-type,
         .description ol li:last-of-type {
           margin-bottom: 1rem;
+        }
+
+        .description p {
+          overflow-wrap: break-word;
         }
 
         .description a {
@@ -132,6 +137,10 @@ const JobDetails = ({
 
         .how-to-apply p:not(:last-of-type) {
           margin-bottom: 1rem;
+        }
+
+        .how-to-apply p {
+          overflow-wrap: break-word;
         }
 
         .how-to-apply a {
