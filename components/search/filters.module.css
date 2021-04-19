@@ -1,0 +1,37 @@
+.filters {
+  width: 100%;
+  border-top: 1px solid #ccc;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.18s ease-out;
+}
+
+.filtersVisible {
+  max-height: 12.0625rem;
+}
+
+.filters li {
+  height: 4rem;
+  padding-left: 1rem;
+  padding-right: 0.7rem;
+  list-style: none;
+}
+
+.filters li:not(:first-of-type) {
+  border-top: 1px solid #ccc;
+}
+
+.filters button {
+  margin-left: 0.6rem;
+}
+
+.filters .checkboxMargin {
+  margin-left: 0.21rem;
+  margin-right: 1.5rem;
+}
+
+@media screen and (min-width: 39.3125em) {
+  .filters {
+    display: none;
+  }
+}

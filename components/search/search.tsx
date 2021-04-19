@@ -4,6 +4,8 @@ import Input from '../input/input';
 import Button from '../button/button';
 import styles from './search.module.css';
 import utilStyles from '../../styles/utils.module.css';
+import Filters from './filters';
+import Checkbox from '../checkbox/checkbox';
 
 const Search = ({
   title,
@@ -61,11 +63,7 @@ const Search = ({
     <div
       className={`${utilStyles.maxSiteWidth} ${utilStyles.contentContainer}`}
     >
-      <form
-        className={`${styles.searchForm} ${
-          filtersVisible ? styles.filtersVisible : styles.filtersHidden
-        }`}
-      >
+      <form className={styles.searchForm}>
         <div
           className={`${styles.searchBarContainer} ${utilStyles.flexRow} ${utilStyles.alignCenter}`}
         >
@@ -121,17 +119,14 @@ const Search = ({
             className={utilStyles.hiddenSm}
           />
           <div className={`${utilStyles.hiddenSm}`}>
-            <input
+            <Checkbox
               type='checkbox'
               id='fullTime'
               name='fullTime'
               checked={isFullTime}
               onChange={handleChangeIsFullTime}
-              className={`${styles.checkbox} ${utilStyles.focusVisible}`}
+              label='Full Time'
             />
-            <label htmlFor='fullTime' className={styles.label}>
-              Full Time
-            </label>
           </div>
           <Button
             type='button'
@@ -183,66 +178,15 @@ const Search = ({
           </Button>
         </div>
         {
-          <div className={styles.filters}>
-            <hr />
-            <ul>
-              <li className={`${utilStyles.flexRow} ${utilStyles.alignCenter}`}>
-                <svg
-                  aria-hidden='true'
-                  xmlns='http://www.w3.org/2000/svg'
-                  height='30px'
-                  viewBox='0 0 24 24'
-                  width='30px'
-                  fill='#00a1ff'
-                  focusable='false'
-                >
-                  <path d='M0 0h24v24H0z' fill='none' />
-                  <path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z' />
-                </svg>
-                <Input
-                  aria-label='Search by title, company, expertise...'
-                  type='search'
-                  placeholder='Search by location'
-                  value={location}
-                  onChange={handleChangeLocation}
-                />
-              </li>
-              <li className={`${utilStyles.flexRow} ${utilStyles.alignCenter}`}>
-                <input
-                  type='checkbox'
-                  id='fullTime'
-                  name='fullTime'
-                  checked={isFullTime}
-                  onChange={handleChangeIsFullTime}
-                  className={`${styles.checkbox} ${utilStyles.focusVisible}`}
-                />
-                <label htmlFor='fullTime' className={styles.label}>
-                  Full Time Only
-                </label>
-              </li>
-              {
-                <li
-                  className={`${utilStyles.flexRow} ${utilStyles.alignCenter} ${utilStyles.flexEnd}`}
-                >
-                  <Button
-                    type='button'
-                    onClick={handleClearFilters}
-                    secondary={true}
-                  >
-                    Clear Filters
-                  </Button>
-                  <Button
-                    type='button'
-                    onClick={handleSubmit}
-                    primary={true}
-                    className={utilStyles.ml1}
-                  >
-                    Apply Filters
-                  </Button>
-                </li>
-              }
-            </ul>
-          </div>
+          <Filters
+            handleChangeIsFullTime={handleChangeIsFullTime}
+            handleChangeLocation={handleChangeLocation}
+            handleClearFilters={handleClearFilters}
+            handleSubmit={handleSubmit}
+            location={location}
+            isFullTime={isFullTime}
+            filtersVisible={filtersVisible}
+          />
         }
       </form>
     </div>

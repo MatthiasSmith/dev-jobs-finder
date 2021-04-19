@@ -4,17 +4,9 @@
   box-shadow: var(--medium-shadow);
   display: flex;
   flex-flow: column;
-  align-items: center;
   margin-top: 3rem;
-  max-height: 4rem;
-  overflow: hidden;
   position: relative;
-  transition: max-height 0.18s ease-out;
   z-index: 1;
-}
-
-.filtersVisible {
-  max-height: 16.0625rem;
 }
 
 .searchBarContainer {
@@ -48,94 +40,10 @@
   fill: white;
 }
 
-.filters {
-  width: 100%; 
-}
-
-.filters hr {
-  border-top: 1px solid #ccc;
-  border-bottom: none;
-}
-
-.filters li {
-  height: 4rem;
-  padding-left: 1rem;
-  padding-right: 0.7rem;
-  list-style: none;
-}
-
-.filters li:not(:first-of-type) {
-  border-top: 1px solid #ccc;
-}
-
-.filters button {
-  margin-left: 0.6rem;
-}
-
-.label {
-  color: rgba(0, 0, 0, 0.87);
-  margin-top: 4px;
-}
-
-.inputLabel {
-  color: white;
-  font-weight: normal;
-  position: absolute;
-  top: -1.55rem;
-}
-
-.checkbox {
-  appearance: none;
-  border: none;
-  width: 18px;
-  height: 18px;
-  margin-right: 1.55rem;
-  margin-left: 0.21rem;
-  position: relative;
-}
-
-.checkbox::before {
-  content: '';
-  cursor: pointer;
-  border: 2px solid #bbb;
-  border-radius: 4px;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: background-color 0.1s ease-out;
-}
-
-.checkbox::after {
-  content: '';
-  cursor: pointer;
-  box-sizing: unset;
-  height: 5px;
-  width: 12px;
-  left: 3px;
-  top: 11px;
-  margin-top: -6px;
-  position: absolute;
-  border-bottom: solid 3px white;
-  border-left: solid 3px white;
-  background: none;
-  transform: rotate(-45deg) scale(0);
-  transition: transform 0.1s ease-out;
-}
-
-.checkbox:checked::before {
-  border-color: var(--color-primary);
-  background-color: var(--color-primary);
-}
-
-.checkbox:checked::after {
-  transform: rotate(-45deg) scale(0.9);
-}
-
 @media screen and (min-width: 39.3125em) {
   .searchForm {
     flex-flow: row;
+    align-items: center;
   }
 
   .desktopSearchIcon {
@@ -169,15 +77,11 @@
     width: calc(100% - 2rem);
   }
 
-  .filters {
+  .mobileSearchIcon {
     display: none;
   }
 
   .filterButton {
-    display: none;
-  }
-
-  .mobileSearchIcon {
     display: none;
   }
 
