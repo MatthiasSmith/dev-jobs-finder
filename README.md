@@ -2,16 +2,16 @@
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [Screenshots](#screenshots)
-  - [Links](#links)
+- [Deprecation Note](#deprecation-note)
+- [Screenshots](#screenshots)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
 - [Author](#author)
 
-## Overview
+## Deprecation Note
+I built this app as a way to practice my frontend development skills. I completed it before the GitHub Jobs API was deprecated, and sadly, that project has now [finished its life](https://github.blog/changelog/2021-04-19-deprecation-notice-github-jobs-site/). So I'll be taking the live demo down for the time being. However, in the future I may update this project if I find another free and open source job listings API. Either way, I enjoyed making this project, and it served as great practice for my increasing my frontend development skills.
 
 ### Screenshots
 #### Search Page
@@ -19,9 +19,6 @@
 
 #### Job Details Page
 ![](screenshots/dev-jobs-finder-job-details-page.jpg)
-### Links
-
-- Live Site URL: [Dev Jobs Finder](https://dev-jobs-finder-matthiassmith.vercel.app/)
 
 ## My process
 
